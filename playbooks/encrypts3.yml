@@ -5,6 +5,7 @@
   gather_facts: False
 
   tasks:
+    - debug: var=manageiq.api_token
     - name: Call Node-red api
       uri:
         url: https://proxycmp.herokuapp.com/https://cloudmanagement.me/api/zones/automation
