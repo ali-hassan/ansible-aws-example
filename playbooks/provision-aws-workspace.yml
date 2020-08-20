@@ -1,0 +1,16 @@
+# Get count of ec2 with the given tag
+- name: Provision AWS Workspace
+  hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: Call Node-red api
+      uri:
+        url: http://localhost:1880/createworkspace
+        method: POST
+        body: '{ "bu": "{{business_unit}}" , "cs": "{{cost_center}}"}'
+        body_format: json
+        status_code: 200
+      register: response
+    - debug: var=response
