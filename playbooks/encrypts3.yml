@@ -1,0 +1,17 @@
+# Get count of ec2 with the given tag
+- name: Encrypt S3 Bucket
+  hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: Call Node-red api
+      uri:
+        url: https://proxycmp.herokuapp.com/https://cloudmanagement.me/api/zones/automation
+        method: POST
+        return_content: yes
+        body: '{ "endpoint": "{{ endpoint_url }}","data" { "name": "{{bucket_name}}"}}'
+        body_format: json
+        status_code: 200
+      register: response
+    - debug: var=response
