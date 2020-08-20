@@ -9,6 +9,8 @@
       uri:
         url: https://proxycmp.herokuapp.com/https://cloudmanagement.me/api/zones/automation
         method: POST
+        headers:
+          X-Auth-Token: "{{ manageiq.api_token }}"
         return_content: yes
         body: '{ "endpoint": "{{ endpoint_url }}","data" { "name": "{{bucket_name}}"}}'
         body_format: json
