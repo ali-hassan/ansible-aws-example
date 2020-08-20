@@ -6,9 +6,10 @@
 
   tasks:
     - debug: var=manageiq.api_token
+
     - name: Call Node-red api
       uri:
-        url: http://localhost:1888/encrypts3
+        url: http://localhost:1880/encrypts3
         method: POST
         body: '{ "name": "vsi-cmp"}'
         body_format: json
