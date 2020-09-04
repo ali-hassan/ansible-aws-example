@@ -9,7 +9,7 @@
       uri:
         url: http://localhost:1880/createworkspace
         method: POST
-        body: '{ "bu": "{{business_unit}}" , "cs": "{{cost_center}}"}'
+        body: '{ "bu": "{{business_unit}}" , "cs": "{{cost_center}}", "user": "{{username}}}'
         body_format: json
         status_code: 200
       register: response
