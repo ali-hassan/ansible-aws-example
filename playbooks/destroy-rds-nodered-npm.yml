@@ -1,0 +1,17 @@
+# Terminate RDS Instance with user inputs using Node Red AWS NPM Package
+
+- name: Deploy Rds
+  hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: Call Node-red api
+      uri:
+        url: http://localhost:1880/terminate-rds
+        method: POST
+        body: '{ "DBInstanceIdentifier": "{{dBInstanceIdentifier}}"}'
+        body_format: json
+        status_code: 200
+      register: response
+    - debug: var=response
