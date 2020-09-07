@@ -1,4 +1,4 @@
-# Creates EC2 Instance with user inputs using Node Red AWS NPM Package
+# Creates RDS Instance with user inputs using Node Red AWS NPM Package
 
 - name: Deploy Rds
   hosts: localhost
@@ -10,7 +10,7 @@
       uri:
         url: http://localhost:1880/deploy-rds
         method: POST
-        body: '{ "Engine": "{{engine}}" , "DBInstanceClass": "{{dBInstanceClass}}" , "DBInstanceIdentifier": "{{dBInstanceIdentifier}}" , "MasterUsername": "{{masterUsername}}" , , "MasterUserPassword": "{{masterUserPassword}}" , , "AllocatedStorage": "{{allocatedStorage}}"}'
+        body: '{ "Engine": "{{engine}}" , "DBInstanceClass": "{{dBInstanceClass}}" , "DBInstanceIdentifier": "{{dBInstanceIdentifier}}" , "MasterUsername": "{{masterUsername}}" , "MasterUserPassword": "{{masterUserPassword}}" , "AllocatedStorage": "{{allocatedStorage}}"}'
         body_format: json
         status_code: 200
       register: response
