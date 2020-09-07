@@ -1,0 +1,16 @@
+# Create a new user in specified VM and add in local Admin Group using SSM
+- name: SSM Local Admin User
+  hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: Call Node-red api
+      uri:
+        url: http://localhost:1880/ssm-command
+        method: POST
+        body: '{ "instanceId": "{{instanceId}}" , "username": "{{username}}"}'
+        body_format: json
+        status_code: 200
+      register: response
+    - debug: var=response

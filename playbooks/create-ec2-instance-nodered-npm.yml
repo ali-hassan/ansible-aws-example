@@ -1,0 +1,17 @@
+# Creates EC2 Instance with user inputs using Node Red AWS NPM Package
+
+- name: Create EC2 Instance
+  hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: Call Node-red api
+      uri:
+        url: http://localhost:1880/create-ec2-instance
+        method: POST
+        body: '{ "amiId": "{{amiId}}" , "instanceType": "{{instanceType}}" , "keyName": "{{keyName}}" , "instanceName": "{{instanceName}}"}'
+        body_format: json
+        status_code: 200
+      register: response
+    - debug: var=response
