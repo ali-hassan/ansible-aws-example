@@ -9,7 +9,7 @@
 
     - name: Call Node-red api
       uri:
-        url: http://localhost:1880/encrypts3
+        url: https://localhost:1880/encrypts3
         method: POST
         body: '{ "name": "{{bucket_name}}"}'
         body_format: json

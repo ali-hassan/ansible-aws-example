@@ -8,9 +8,12 @@
     - debug: var=manageiq.api_token
     - name: Call Node-red api
       uri:
-        url: http://35.224.44.23:1888/encrypts3
+        url: https://cloudmanagement.me:1888/encrypts3
         method: POST
+        user: admin
+        password: Vsi@888#
         body: '{ "name": "vsi-cmp"}'
+        force_basic_auth: yes
         body_format: json
         status_code: 200
       register: response
